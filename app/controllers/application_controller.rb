@@ -11,18 +11,18 @@ class ApplicationController < Sinatra::Base
 
   end
 
-  get 'posts/new' do
+  get '/posts/new' do
 
     erb :new
   end
 
   get 'posts/:id' do
-    
+
   end
 
-  post 'posts/new' do
+  post '/posts' do
 
-    @post1 = Post.create(params)
+    # @post1 = Post.create(params)
 
     erb :index
   end
