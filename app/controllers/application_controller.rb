@@ -27,14 +27,26 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/posts/new' do
+  post '/posts' do
+
+    Post.create(params)
+    @posts = Post.all
+
+    erb :index
+
+  end
+
+  get 'posts/new' do
+
+    @posts = Post.all
 
     erb :new
   end
 
-  post '/posts' do
+  post 'posts/new' do
+    binding.pry
 
-    @post1 = Post.create(params)
+    Post.create(params)
 
     erb :index
   end
