@@ -37,7 +37,6 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/posts/new' do
-    binding.pry
 
     Post.create(params)
 
@@ -57,6 +56,7 @@ class ApplicationController < Sinatra::Base
     @post = Post.find(params[:id].to_i)
     @post.name = params[:name]
     @post.content = params[:content]
+    @post.save
 
     erb :show
   end
